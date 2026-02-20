@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import { toast } from '../../utils/toast';
 import './Chat.css';
 
-const SOCKET_URL = 'http://localhost:5000';
+const SOCKET_URL = 'https://refqa-0-lhx8.vercel.app';
 const JUZ_NAMES = [
     'الجزء الأول - سورة البقرة', 'الجزء الثاني - البقرة', 'الجزء الثالث - البقرة والآل عمران',
     'الجزء الرابع - آل عمران والنساء', 'الجزء الخامس - النساء والمائدة',

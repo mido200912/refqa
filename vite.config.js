@@ -7,19 +7,19 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://refqa-0-lhx8.vercel.app',
         changeOrigin: true,
       },
       '/user': {
-        target: 'http://localhost:5000',
+        target: 'https://refqa-0-lhx8.vercel.app',
         changeOrigin: true,
       },
       '/auth': {
-        target: 'http://localhost:5000',
+        target: 'https://refqa-0-lhx8.vercel.app',
         changeOrigin: true,
       },
       '/chat': {
-        target: 'http://localhost:5000',
+        target: 'https://refqa-0-lhx8.vercel.app',
         changeOrigin: true,
         ws: true,
       },

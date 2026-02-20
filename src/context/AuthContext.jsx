@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('refqa_token') || null);
     const [loading, setLoading] = useState(true);
 
-    axios.defaults.baseURL = 'http://localhost:5000/api';
+    axios.defaults.baseURL = 'https://refqa-0-lhx8.vercel.app/api';
 
     useEffect(() => {
         if (token) {
