@@ -1,0 +1,318 @@
+.prayer-page {
+    padding: 2rem 0 4rem;
+}
+
+.prayer-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Prayer time card */
+.prayer-times-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-times-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--purple));
+}
+
+.prayer-times-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prayer-times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+}
+
+.prayer-time-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.prayer-time-item.next-prayer {
+    border-color: var(--primary);
+    background: rgba(16, 185, 129, 0.07);
+    box-shadow: var(--shadow-glow);
+    animation: pulse-glow 2s infinite;
+}
+
+.prayer-time-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin: 0 auto 0.4rem;
+    transition: var(--transition);
+}
+
+.prayer-time-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.prayer-time-val {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-light);
+    font-variant-numeric: tabular-nums;
+}
+
+.next-badge {
+    font-size: 0.62rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+/* Notif toggle */
+.notif-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-input);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.toggle-slider::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 16px;
+    height: 16px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background: var(--primary);
+}
+
+.toggle-switch input:checked+.toggle-slider::after {
+    right: calc(100% - 19px);
+    background: white;
+}
+
+/* Prayer log */
+.prayer-log-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+    .prayer-log-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.log-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.log-card:hover {
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-glow);
+}
+
+.log-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin: 0 auto 0.75rem;
+}
+
+.log-icon-blue {
+    color: var(--secondary-light);
+    filter: drop-shadow(0 0 10px rgba(30, 127, 196, 0.4));
+}
+
+.log-icon-purple {
+    color: #a78bfa;
+    filter: drop-shadow(0 0 10px rgba(124, 82, 232, 0.4));
+}
+
+.log-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.log-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.log-count {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--primary-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.log-count small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    display: block;
+}
+
+.log-total {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.log-btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+}
+
+.log-btn.prayer-btn {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+}
+
+.log-btn.nawafil-btn {
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+}
+
+.log-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.log-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.log-btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* Prayer dots */
+.prayer-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.prayer-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-input);
+    border: 1.5px solid var(--border);
+    transition: var(--transition);
+}
+
+.prayer-dot.filled {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+/* History */
+.prayer-history {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.prayer-history-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.history-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-row:last-child {
+    border-bottom: none;
+}
+
+.history-icon {
+    font-size: 1.2rem;
+}
+
+.history-text {
+    flex: 1;
+    font-size: 0.85rem;
+}
+
+.history-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}

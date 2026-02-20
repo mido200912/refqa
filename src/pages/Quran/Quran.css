@@ -1,0 +1,318 @@
+.quran-page {
+    padding: 2rem 0 5rem;
+}
+
+/* Top bar */
+.quran-topbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-gold);
+    padding-bottom: 1.5rem;
+}
+
+.quran-topbar-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary-light), var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Stats row */
+.quran-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.qs-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.qs-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.qs-card:hover {
+    border-color: var(--border-active);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.qs-card:hover::before {
+    opacity: 1;
+}
+
+.qs-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin: 0 auto 0.5rem;
+    color: var(--primary-light);
+}
+
+.qs-value {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--primary-light);
+    display: block;
+    line-height: 1.1;
+}
+
+.qs-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* PDF Viewer */
+.quran-viewer-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
+}
+
+.quran-viewer-header {
+    background: var(--bg-secondary);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.quran-direct-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.quran-direct-link:hover {
+    background: rgba(212, 160, 23, 0.1);
+    color: var(--gold);
+}
+
+.quran-viewer-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    color: var(--gold-light);
+    font-size: 0.95rem;
+}
+
+.quran-viewer-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.page-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.page-input {
+    width: 55px;
+    background: none;
+    border: none;
+    color: var(--primary-light);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+}
+
+.ctrl-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: var(--radius-sm);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+
+.ctrl-btn:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary-light);
+    background: rgba(26, 158, 110, 0.1);
+}
+
+.ctrl-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.saving-indicator {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    animation: pulse-glow 1.5s infinite;
+}
+
+/* iframe */
+.quran-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 76vh;
+    background: #12192a;
+}
+
+.quran-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fallback message - shown behind iframe via z-index trick */
+.quran-iframe-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    z-index: 0;
+}
+
+/* Progress bar */
+.quran-progress-bar {
+    background: var(--bg-secondary);
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.progress-track {
+    flex: 1;
+    min-width: 200px;
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--gold));
+    border-radius: 999px;
+    transition: width 0.6s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    border-radius: 999px;
+}
+
+.progress-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+/* Complete button */
+.complete-btn {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #1a1000;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1.4rem;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 20px var(--gold-glow);
+    animation: pulse-gold 3s infinite;
+}
+
+.complete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--gold-glow);
+}
+
+@media (max-width: 600px) {
+    .quran-iframe-wrapper {
+        height: 60vh;
+    }
+
+    .quran-topbar {
+        flex-direction: column;
+        text-align: center;
+    }
+}

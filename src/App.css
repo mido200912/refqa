@@ -1,0 +1,4 @@
+/* Global App styles - non-component specific */
+#root {
+  min-height: 100vh;
+}
